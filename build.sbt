@@ -1,8 +1,7 @@
-
 val commonSettings = Seq(
   version            := "0.5",
-  scalaVersion       := "2.12.8",
-  crossScalaVersions := Seq("2.12.8", "2.13.1"),
+  scalaVersion       := "2.13.3",
+  crossScalaVersions := Seq("2.12.8", "2.13.3"),
   organization       := "ch.epfl.lara",
   resolvers          += "bintray-epfl-lara" at "https://dl.bintray.com/epfl-lara/maven",
 )
