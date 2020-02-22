@@ -46,12 +46,10 @@ trait PrettyPrinting { self: Syntaxes =>
         case Transform(_, inverse, inner) => {
           val producers = inverse(value).map(go(inner, _))
 
-          if (producers.isEmpty) {
-            Producer.empty
-          }
-          else {
+          if (producers.isEmpty)
+            throw new Exception(s"Pretty printing failed on ${value.getClass}:\n$value")
+          else
             producers.reduceLeft(ops.union(_, _))
-          }
         }
         case Recursive(id, inner) => recs.get((id, value)) match {
           case Some(function) => function()
